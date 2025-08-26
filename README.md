@@ -18,8 +18,8 @@ CustomerDNA turns natural-language personas into deterministic data filters and 
 
 ### Customer Profile:
 
-![Customer Profile](Customer Search Screenshot 1.png)
-![Customer Profile](Customer Search Screenshot 2.png)
+![Customer Profile](Customer_Search_Screenshot_Header.png)
+![Customer Profile](Customer_Search_Screenshot.png)
 
 
 ## How It Works (Architecture)
