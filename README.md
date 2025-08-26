@@ -1,15 +1,15 @@
-CustomerDNA 🧬 — GenAI-Powered Persona Search & Customer Insights (Streamlit)
+# CustomerDNA 🧬 — GenAI-Powered Persona Search & Customer Insights (Streamlit)
 
 CustomerDNA turns natural-language personas into deterministic data filters and crisp customer insights. Business users type prompts like “female customers over 40 with affinity to Apparel”; the app returns the exact rows i.e. relevant customers. The app has another tab called "Customer Summary" which takes in a Customer ID as user input and displays all the details about that Customer including a AI powered summary about their persona and customer behaviour.
 
-What This Solves:
+## What This Solves:
 
 1. Fast audience discovery without SQL or dashboard clicks
 2. Deterministic, auditable results (LLM proposes filters; pandas enforces logic)
 3. Works across many columns; schema is inferred from the dataset
 
 
-Screenshots:
+## App Screenshots:
 
 Persona search (Female, >40, Apparel):
 ![Persona Search](Persona Search.png)
@@ -20,7 +20,7 @@ Customer Profile:
 ![Customer Profile](Customer Search Screenshot 2.png)
 
 
-How It Works (Architecture)
+## How It Works (Architecture)
 
                 ┌───────────────────────────┐
                 │  CSV/Excel Dataset        │
@@ -51,7 +51,7 @@ How It Works (Architecture)
 
 
 
-Why it’s different:
+## Why it’s different:
 
 1. Deterministic, auditable results. The model never selects rows; it only proposes filters. Your code enforces logic and equality.
 
@@ -62,13 +62,13 @@ Why it’s different:
 4. Production-minded. Caching, defensive parsing, normalized columns, and modular functions make it easy to extend.
 
 
-Tech stack:
+## Tech stack:
 
 Streamlit, pandas, numpy, matplotlib
 OpenAI Python SDK (Responses API)
 
 
-Use cases:
+## Use cases:
 
 1) Audience discovery for marketing or CRM
 
@@ -78,13 +78,13 @@ Use cases:
 
 
 
-Code flow (deep dive)
+## Code flow (deep dive)
 1) Load & normalize data
 
 2) Build schema for the LLM
 
-To scale to any column, the app infers a schema with (name, type, sample values).
-This keeps the prompt small and avoids leaking the full dataset.
+  To scale to any column, the app infers a schema with (name, type, sample values).
+  This keeps the prompt small and avoids leaking the full dataset.
 
 3) Persona → JSON filter (LLM)
    
@@ -103,41 +103,42 @@ The evaluator supports numeric, string, and date operators; unknown columns beco
 Depending on the tab, the final display is either list of customers matching the entered search persona or customer profile based on entered Customer ID.
 
 
-Quickstart:
+## Quickstart:
 
-# 1) Create & activate a venv (optional)
+1) Create & activate a venv (optional)
 python -m venv .venv
-# Windows:
+
+ Windows:
 .venv\Scripts\activate
-# macOS/Linux:
+macOS/Linux:
 source .venv/bin/activate
 
-# 2) Install deps
+2) Install deps
 pip install -U streamlit pandas numpy openpyxl matplotlib streamlit-option-menu openai
 
-# 3) Configure env (either one)
-#    A) Streamlit secrets (recommended)
-#       .streamlit/secrets.toml
-#       OPENAI_API_KEY="sk-..."
-#    B) Environment variable
-#       setx OPENAI_API_KEY "sk-..."    # Windows
-#       export OPENAI_API_KEY="sk-..."  # macOS/Linux
+3) Configure env (either one)
+    A) Streamlit secrets (recommended)
+       .streamlit/secrets.toml
+       OPENAI_API_KEY="sk-..."
+    B) Environment variable
+       setx OPENAI_API_KEY "sk-..."    # Windows
+       export OPENAI_API_KEY="sk-..."  # macOS/Linux
 
-# 4) Put your dataset (Excel) somewhere and set DATA_PATH in the code or via env
-#    DATA_PATH="C:/path/to/GuestDNA_Sample_data1.xlsx"
+ 4) Put your dataset (Excel) somewhere and set DATA_PATH in the code or via env
+    DATA_PATH="C:/path/to/GuestDNA_Sample_data1.xlsx"
 
-# 5) Run the app
+ 5) Run the app
 streamlit run customerDNA.py
 
 
-Configuration:
+## Configuration:
 
 1. OpenAI: Requires an API key. Uses the Responses API (openai Python SDK ≥ v1).
 
 2. Dataset path: Edit DATA_PATH in code or read from an env var.
 
 
-Extending the app:
+## Extending the app:
 
 1. More operators: add regex or levenshtein in eval_condition.
 
@@ -150,4 +151,4 @@ Extending the app:
 5. Auth & sharing: add login and user workspaces.
 
 
-Contributions and stars welcome!
+### Contributions and stars welcome!
