@@ -11,11 +11,13 @@ CustomerDNA turns natural-language personas into deterministic data filters and 
 
 ## App Screenshots:
 
-Persona search (Female, >40, Apparel):
-![Persona Search](Persona Search.png)
+### Persona search (Female, >40, Apparel):
+
+![Persona Search](Persona_Search.png)
 
 
-Customer Profile:
+### Customer Profile:
+
 ![Customer Profile](Customer Search Screenshot 1.png)
 ![Customer Profile](Customer Search Screenshot 2.png)
 
